@@ -39,7 +39,6 @@ class Bot:
         """        
         def inner(self):
             joke = func(self)
-            print(joke)
             messages = [
             SystemMessage(content="Is provided sentence is offensive. '{joke}' just say yes or no "),
             HumanMessage(content=joke)
@@ -83,9 +82,7 @@ class Bot:
             str: joke
         """       
         rand_idx = random.randint(0, len(self.joke_contexts)-1)
-        print(rand_idx)
         joke_context = self.joke_contexts[rand_idx]
-        print(joke_context)
         
         system_message = f"Provide a  joke about {joke_context} without any phrasing."
         human_message = "Tell me a joke."
