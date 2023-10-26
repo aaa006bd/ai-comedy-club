@@ -21,7 +21,7 @@ class Bot:
     """
     
     def __init__(self,):
-       self.api_key = "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" #os.getenv('OPENAI_API_KEY')
+       self.api_key = os.getenv('OPENAI_API_KEY')
        self.joke_contexts = ['science', 'politics',  'AI', 'celebrities', 'recent events', 'affairs']
        self.llm = ChatOpenAI(openai_api_key=self.api_key, model='gpt-3.5-turbo', temperature=0.7)
        random.seed()
