@@ -111,7 +111,7 @@ class Bot:
         SystemMessage(content=f'Rate the joke with scale from 1(not funny) to 10(hilarious) based on the given criteria {",".join(judging_criteria)}. Format your output in json with key as the criteria and value as the rating'),
         HumanMessage(content=f'Is this joke funny? {joke}')
         ]
-        base_ratings = json.loads(self.llm(messages=messages).content)
+        base_ratings = json.loads(self.ask_gpt(messages[1],messages[0]))
         
         rating = sum([weight_matrix.get(x)* base_ratings.get(x) for x in judging_criteria])/len(judging_criteria)
         return round(rating)
